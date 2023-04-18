@@ -1,0 +1,16 @@
+.flag{
+  width: 100px;
+  height: 50px;
+  border-radius: 10px;;
+
+}
+
+.bg_color{
+  background-color: #ededed;
+}
+
+
+button{
+ box-shadow: rgba(0, 0, 0, 0.2) 0px 18px 50px -10px;
+  
+}

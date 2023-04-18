@@ -1,0 +1,29 @@
+<!-- <div *ngIf="otherJobSelected == 'OTHER' || otherJobSelected === 'OTRO'"> -->
+  <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+  <!-- <div *ngIf="!otherJobSelected"> -->
+    <!-- <h1 class="m-3 text-center text-red-500 p-2"> PLEASE SELECT THE APPLICATION QUESTION YOU NEED HELP WITH</h1> -->
+    <select class="p-4 rounded-16 w-full my-3" (change)="changeJob($event)" formControlName="jobHelpName">
+      <option value="">PLEASE SELECT THE APPLICATION QUESTION YOU NEED HELP WITH</option>
+      <option *ngFor="let job of JobsNeedHelpWith" [ngValue]="job"> {{ job }} </option>
+    </select>
+
+    <input *ngIf="otherQuestionHelpSelected === 'OTHER' || otherQuestionHelpSelected === 'OTRO' " id="other" type="text" [formControl]="other" class="other-input w-full p-3 rounded mt-3" placeholder="PLEASE ENTER YOUR APPLICATION QUESTION">
+
+  </form>
+
+
+
+
+
+
+  <!-- CONDITIONAL ONE   -->
+
+  <!-- <div *ngIf="otherJobSelected == 'OTHER' || otherJobSelected === 'OTRO'"> -->
+    <!-- <form [formGroup]="registrationForm"> -->
+      <!-- <div *ngIf="!otherJobSelected"> -->
+        <!-- <h1 class="m-3 text-center text-red-500 p-2"> PLEASE SELECT THE APPLICATION QUESTION YOU NEED HELP WITH</h1>
+        <select class="p-4 rounded-16 w-full" (change)="changeJob($event)" formControlName="jobHelpName">
+          <option value="">Select A Question</option>
+          <option *ngFor="let job of JobsNeedHelpWith" [ngValue]="job"> {{ job }} </option>
+        </select>
+      </form> -->

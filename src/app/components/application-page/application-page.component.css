@@ -1,0 +1,60 @@
+.form-btn, form{
+  margin-top: 20px;
+  border-radius: 70px;
+  /* padding: px; */
+  width: 100%;
+}
+
+
+.form-btn{
+ border: none;
+ box-shadow: rgba(0, 0, 0, 0.2) 0px 18px 50px -10px;
+
+}
+
+.response{
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+}
+
+.response-gpt{
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  border-radius: 10px;
+  margin: 0 5px;
+  padding-bottom: 10px;
+}
+
+.other-input, select, button{
+  border: 1px solid cornflowerblue;
+  border-radius: 10px;
+}
+
+.close-btn{
+  border: none;
+  border-radius: 80px;
+  text-transform: uppercase;
+  color: red;
+  padding: 5px 0;
+  border: 1px solid red;
+  font-weight: bolder;
+}
+
+.close-btn:hover{
+  color: white;
+  border: 1px solid red;
+  background-color: red;
+  cursor: pointer;
+}
+
+.save-btn{
+  border: 1px solid cornflowerblue;
+  color: white;
+  padding: 10px 0;
+  background-color: cornflowerblue;
+  text-transform: uppercase;
+  border-radius: 50px;
+}
+
+.save-btn:hover{
+  background-color: cornflowerblue;
+  color: white;
+}

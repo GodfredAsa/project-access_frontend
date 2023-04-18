@@ -1,0 +1,167 @@
+
+<div class="">
+  <div class="w-[100%]">
+      <app-logo></app-logo>
+    <div class="bg-red-500 mx-2 p-20 mb-20 rounded-2xl text-center text-white hover:pointer tracking-widest         employment_img" routerLink="/employment">
+    </div>
+
+    <div class="container mb-10">
+      <div class="flex flex-row my-4 gap-3 justify-center" routerLink="/application">
+        <div class="basis-3/4">
+          <div class="flex flex-row w-full border rounded-md border-yellow-400">
+            <div class="basis-1/5 bg-yellow-400 text-center ">
+              <img src="../../../assets/images/application_icon.svg" alt="cv-icon">
+            </div>
+            <div class="basis-4/5 border rounded-md w-1/3 pl-3 hover:pointer" >
+              <small class="text-bold tracking-widest" *ngIf="selectedLanguage==='English'">APPLICATION</small>
+              <small class="text-bold tracking-widest uppercase" *ngIf="selectedLanguage==='Espanol'">Aplicación</small>
+              <div class="flex justify-between uppercase">
+                <small *ngIf="selectedLanguage==='English'">VIEW</small>
+                <small *ngIf="selectedLanguage==='Espanol'"> Vista </small>
+                <i class="bi bi-eye px-2"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="basis-1/4 bg-[#e2e2e2] rounded text-md">
+          <div class="flex flex-col items-center">
+            <div><i class="bi bi-question-circle"></i></div>
+            <div class="uppercase text-sm">
+              <div *ngIf="selectedLanguage==='English'">Help</div>
+              <div *ngIf="selectedLanguage==='Espanol'">ayuda</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="flex flex-row gap-3 justify-center">
+        <div class="basis-3/4">
+          <div class="flex flex-row w-full border rounded-md border-[#00e2d5]">
+            <div class="basis-1/5 bg-[#00e2d5] text-center">
+              <!-- <i class="bi bi-file-earmark-person-fill text-4xl"></i> -->
+              <img src="../../../assets/images/cv_icon.svg" alt="cv-icon">
+            </div>
+
+            <div class="basis-4/5 border rounded-md w-1/3 pl-3 uppercase">
+              <small class="text-bold tracking-widest" div *ngIf="selectedLanguage==='English'">CV</small>
+              <small class="text-bold tracking-widest" div *ngIf="selectedLanguage==='Espanol'">resumen curricular</small>
+              <div class="flex justify-between uppercase">
+                <small *ngIf="selectedLanguage==='English'">VIEW</small>
+                <small *ngIf="selectedLanguage==='Espanol'"> Vista </small>
+                <i class="bi bi-eye px-2"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="basis-1/4 bg-[#e2e2e2] rounded text-md">
+          <div class="flex flex-col items-center">
+            <div><i class="bi bi-question-circle"></i></div>
+            <div class="uppercase text-sm">
+              <div *ngIf="selectedLanguage==='English'">Help</div>
+              <div *ngIf="selectedLanguage==='Espanol'">ayuda</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex flex-row my-4 gap-3 justify-center">
+        <div class="basis-3/4 rounded-2xl">
+          <div class="flex flex-row w-full border rounded-2xl border-[#1fe229]">
+            <div class="basis-1/5 bg-[#1fe229] text-center ">
+              <img src="../../../assets/images/idea_icon.svg" alt="idean-icon">
+            </div>
+
+            <div class="basis-4/5 border rounded-md w-1/3 pl-3 uppercase">
+              <small class="text-bold tracking-widest" div *ngIf="selectedLanguage==='English'">WORK IDEAS</small>
+              <small class="text-bold tracking-widest" div *ngIf="selectedLanguage==='Espanol'">recursos</small>
+              <div class="flex justify-between uppercase">
+                <small *ngIf="selectedLanguage==='English'">VIEW</small>
+                <small *ngIf="selectedLanguage==='Espanol'"> Vista </small>
+                <i class="bi bi-eye px-2"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="basis-1/4 bg-[#e2e2e2] rounded text-md">
+          <div class="flex flex-col items-center">
+            <div><i class="bi bi-question-circle"></i></div>
+            <div class="uppercase text-sm">
+              <div *ngIf="selectedLanguage==='English'">Help</div>
+              <div *ngIf="selectedLanguage==='Espanol'">ayuda</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex flex-row my-4 gap-3 justify-center">
+        <div class="basis-3/4">
+          <div class="flex flex-row w-full border rounded-md border-[#e28801]">
+            <div class="basis-1/5 bg-[#e28801] text-center">
+              <!-- <i class="bi bi-wallet text-4xl"></i> -->
+              <img src="../../../assets/images/resource_icon.svg" alt="cv-icon">
+            </div>
+
+            <div class="basis-4/5 border rounded-md w-1/3 pl-3 uppercase">
+              <small class="text-bold tracking-widest" div *ngIf="selectedLanguage==='English'">resources</small>
+              <small class="text-bold tracking-widest" div *ngIf="selectedLanguage==='Espanol'">recursos</small>
+              <div class="flex justify-between uppercase">
+                <small *ngIf="selectedLanguage==='English'">VIEW</small>
+                <small *ngIf="selectedLanguage==='Espanol'"> Vista </small>
+                <i class="bi bi-eye px-2"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="basis-1/4 bg-[#e2e2e2] rounded text-md">
+          <div class="flex flex-col items-center">
+            <div><i class="bi bi-question-circle"></i></div>
+            <div class="uppercase text-sm">
+              <div *ngIf="selectedLanguage==='English'">Help</div>
+              <div *ngIf="selectedLanguage==='Espanol'">ayuda</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FOOTER OF THE PAGE  -->
+    <div class="mb-3 border-t-4">
+      <div class="flex justify-evenly mt-8">
+        <div class="flex flex-col text-center">
+          <a routerLink="/menu">
+            <i class="bi bi-chevron-double-left text-3xl"></i>
+            <p class="text-sm tracking-widest">Back</p>
+          </a>
+        </div>
+
+        <div class="flex flex-col text-center" routerLink="/">
+          <i class="bi bi-house-door text-3xl"></i>
+          <p class="text-sm tracking-widest">Home</p>
+        </div>
+
+        <div class="flex flex-col text-center">
+          <i class="bi bi-heart text-3xl"></i>
+          <p class="text-sm tracking-widest">Heath</p>
+        </div>
+
+        <div class="flex flex-col text-center text-[#009bd2]"
+          routerLink="/employment">
+          <i class="bi bi-briefcase text-3xl"></i>
+          <p class="text-sm tracking-widest">Employment</p>
+        </div>
+
+        <a>
+          <div class="flex flex-col text-center">
+            <i class="bi bi-three-dots text-3xl"></i>
+            <p class="text-sm tracking-widest">More</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

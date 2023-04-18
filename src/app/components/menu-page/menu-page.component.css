@@ -1,0 +1,27 @@
+.health_img{
+  background-image: url('../../../assets/images/health_.svg');
+  background-position: center center;
+  background-size: cover;
+}
+
+.education_img{
+  background-image: url('../../../assets/images/education.png');
+  background-position: center center;
+  background-size: cover;
+}
+
+.employment_img{
+  background-image: url('../../../assets/images/employment.png');
+  background-position: center center;
+  background-size: cover;
+
+}
+
+
+.public_img{
+  background-image: url('../../../assets/images/public_assistance.png');
+  background-position: center center;
+  background-size: cover;
+}
+
+

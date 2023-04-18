@@ -1,0 +1,157 @@
+<div class="m-3">
+
+<app-logo></app-logo>
+
+<!-- Welcome to the APPLICATION HELP Menu -->
+  <h1 class="uppercase text-center tracking-wider text-xl font-serif">Bienvenido al Menú de AYUDA <br> DE LA APLICACIÓN</h1>
+
+
+    <div class="flex flex-col justify-center gap-3 items-center mt-8">
+      <!-- <h1>PLEASE SELECT AN APPLICATION QUESTION</h1> -->
+      <form [formGroup]="registrationForm" (ngSubmit)="getChatGPTResponse()" class="form">
+
+        <!-- >PLEASE SELECT THE JOB TITLE YOU ARE APPLYING FOR:  -->
+           <label class="">POR FAVOR SELECCIONE EL TÍTULO DEL TRABAJO QUE ESTÁ SOLICITANDO: </label>
+          <select class="p-3 mt-2 rounded-16 w-full" (change)="changeJob($event)" formControlName="jobName">
+            <!-- JOB TITLE -->
+            <option value="">TÍTULO PROFESIONAL</option>
+            <option *ngFor="let job of Jobs" [ngValue]="job"> {{ job }} </option>
+          </select>
+
+          <div class="text-red-500 " *ngIf="isSubmitted && this.other.value">
+            <!-- lease Select a Job Title -->
+            <sup>*</sup>por favor seleccione un puesto de trabajo
+          </div>
+          <br>
+
+          <div>
+            <input *ngIf="otherJobSelected === 'OTHER' || otherJobSelected === 'OTRO' " id="other" type="text" [formControl]="other" class="other-input w-full p-3 rounded mt-3" placeholder="POR FAVOR INGRESE SU TÍTULO DE TRABAJO">
+          </div>
+
+
+        <div class="mt-3">
+          <label class="">SELECCIONE LA SECCIÓN DE APLICACIÓN CON LA QUE NECESITA AYUDA:</label>
+          <!-- SELECT APPLICATION SECTION YOU NEED HELP WITH -->
+          <select class="p-4 rounded-16 w-full my-1" (change)="changeApplicationQuestion($event)" formControlName="jobHelpName">
+            <option value="">SELECCIONE LA SECCIÓN DE APLICACIÓN CON LA QUE NECESITA AYUDA</option>
+            <option *ngFor="let job of JobsNeedHelpWith" [ngValue]="job"> {{ job }} </option>
+          </select>
+
+          <input *ngIf="otherSelectedApplicationQuestion === 'OTHER' || otherSelectedApplicationQuestion === 'OTRO' " id="other" type="text" [formControl]="otherApplicationQuestion" class="other-input w-full p-3 rounded mt-3" placeholder="PLEASE ENTER YOUR APPLICATION QUESTION">
+
+        </div>
+
+          <!--================== end of helps with forms =========================== -->
+
+<!-- CONDITIONAL SELECTION  -->
+
+        <div >
+          <button type="submit" class="form-btn uppercase mb-3 p-3 bg-blue-400 text-white" [disabled]="!this.registrationForm.value.jobName">
+            haga clic para VER LAS INSTRUCCIONES DE LA SECCIÓN DE SOLICITUD
+           </button>
+        </div>
+      </form>
+    </div>
+
+    <!--=================== PAGE LOADER ============ -->
+    <div class="flex flex-row justify-center">
+      <app-loader *ngIf="pageLoader"></app-loader>
+    </div>
+
+
+    <!--=============================== CHAT GPT INSTRUCTION ============================   -->
+<div class="response-gpt  bg-white" *ngIf="chatGptResponses">
+ <span class= "flex justify-center text-center text-2xl rounded-2xl uppercase p-3"> escribe esto en tu solicitud</span>
+ <p  *ngFor="let response of chatGptResponses" class="py-3 px-3"> {{response}} </p>
+</div>
+
+<!--==================== MODAL BUTTON   ================= -->
+<div class="flex justify-center items-center mx-2"  *ngIf="chatGptResponses">
+  <!-- CLICK TO PROVIDE INFORMATION FOR SECTION -->
+  <button type="submit" class="form-btn uppercase mb-5 px-4 py-3 hover:bg-white bg-green-500 text-white" (click)="toggleModal()">
+    HAGA CLIC PARA PROPORCIONAR INFORMACIÓN PARA LA SECCIÓN
+  </button>
+</div>
+
+<!--  ===================================== MODAL SECTION OF THE PAGE ======================= -->
+<div *ngIf="showModal" class="overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none justify-center items-center flex w-full">
+  <div class="relative w-auto my-6 mx-auto max-w-sm">
+    <!--content-->
+
+    <form>
+    <div class="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
+      <!--header-->
+      <div class="flex text-center justify-center">
+
+        <!-- GOALS OR WORK HISTORY  -->
+        <label for=" " class="uppercase pt-4 pb-0 mb-0">Escribe tus metas profesionales <br> o tu historial laboral</label>
+      </div>
+      <!--body-->
+      <div class="relative p-6 flex-auto">
+        <textarea name="content" id="" cols="30" rows="10" class="w-full my-2 border border-cornflowerblue-400 rounded-md" [formControl] = "workHistoryForm"></textarea>
+      </div>
+      <!--footer-->
+      <div class="grid grid-cols-2 gap-1 justify-center mx-8 mt-0 items-center mb-3  w-[80%]">
+
+        <!-- CLOSE -->
+        <button class="close-btn form-btn" type="button" (click)="toggleModal()"> CERCA </button>
+        <!-- OK  -->
+        <button class="save-btn form-btn" type="button" (click)="getWorkHistoryFromChatGPT()">DE ACUERDO</button>
+      </div>
+    </div>
+
+  </form>
+
+  </div>
+</div>
+<div *ngIf="showModal" class="opacity-25 fixed inset-0 z-40 bg-black"></div>
+<!-- ============================ END OF MODAL SECTION OF THE PAGE ========================= -->
+
+
+
+
+<!--=========================== WHAT TO WRITE MODAL BUTTON  ============================= -->
+<!-- <div class="flex flex-row justify-center">
+  <app-loader *ngIf="!chatGPTWorkHistoryResponse"></app-loader>
+</div> -->
+<!-- =============================== END MODAL  =====================-->
+<div class="flex justify-center items-center mx-2" *ngIf="chatGPTWorkHistoryResponse">
+  <!-- SEE WHAT YOU SHOULD WRITE ON YOUR APPLICATION -->
+  <button type="submit"
+          class="form-btn uppercase mb-5 px-4 py-3 bg-red-500 text-white"
+
+          (click)="toggleWhatToWriteModal()"> VEA LO QUE DEBE ESCRIBIR EN SU SOLICITUD
+  </button>
+</div>
+
+<!--======   NEED TO SET EXTRA CONDITION WHEN THE RESPONSE IS RETURNED TO DISPLAY THE MODAL RESULTS TOO ======= -->
+<div  *ngIf="whatToWriteModal" class="overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none justify-center items-center flex w-[100%]">
+  <div class="relative w-auto my-6 mx-auto max-w-sm">
+    <!--content-->
+    <div class="border-0 rounded-lg response 0px 18px 50px -10px] relative flex flex-col w-full bg-white outline-none focus:outline-none">
+      <!--header-->
+      <!-- WHAT TO WRITE ON THE WORK HISTORY -->
+      <div class="flex text-center justify-center">
+        <label for=" " class="uppercase pt-4 pb-0 mb-0"> QUÉ ESCRIBIR EN EL HISTORIAL LABORAL </label>
+      </div>
+      <!--body  -->
+      <div class="relative p-6 flex-auto "  *ngFor="let res of chatGPTWorkHistoryResponse">
+        <p>{{res}} </p>
+      </div>
+      <!--footer-->
+      <div class="grid grid-cols-1 gap-1 justify-center mx-8 mt-0 items-center mb-3  w-[80%]">
+        <!-- <button class="close-btn" type="button" (click)="toggleWhatToWriteModal()"> cancel </button> -->
+        <!-- DONE  -->
+        <button class="save-btn form-btn tracking-widest" type="button" (click)="toggleWhatToWriteModal()">Hecha</button>
+
+      </div>
+    </div>
+  </div>
+</div>
+<div *ngIf="whatToWriteModal" class="opacity-25 fixed inset-0 z-40 bg-black"></div>
+
+</div>
+
+
+
+

@@ -1,0 +1,37 @@
+<div class="bg_color">
+  <div class="h-screen w-3/3">
+
+    <app-logo></app-logo>
+
+    <div class="flex justify-center items-center uppercase">
+      <h1 class="text-3xl mb-16 h-[48px]">elige tu idioma</h1>
+    </div>
+
+
+      <div class="flex gap-2 ml-6 mt-8 mr-5" *ngFor="let language of languages">
+        <div class="w-full ">
+          <img src="{{language?.imageUrl}}" alt="{{language.name}}" class="flag">
+        </div>
+        <div class="text-2xl">{{language.name}}</div>
+        <div class="ml-32">
+           <input type="checkbox"  name="language.name" id="langauge?.id" (click)="getLanguageByName(language.name)" class="mt-3 ">
+        </div>
+      </div>
+
+
+
+  <div class="flex justify-center items-center mt-32">
+      <a routerLink="/age" class="w-2/3 ">
+
+        <button *ngIf="isLanguage" class="border border-black rounded-full uppercase tracking-widest p-3 bg-[#5089c6] text-gray space-x-0 text-2xl border-none w-[80%] mt-10 hover::bg-white text-white">
+          <small *ngIf="selectedLanguage==='Espanol'">Continuar</small>
+          <small *ngIf="selectedLanguage==='English'">Continue</small>
+        </button>
+
+        <button *ngIf="!isLanguage" disabled="!isLanguage" class="border border-black rounded-full tracking-widest p-3 bg-[#c1c1c1] text-gray space-x-0 text-2xl border-none w-[80%] mt-10 hover::bg-white">CONTINUE</button>
+      </a>
+  </div>
+
+  </div>
+
+</div>
